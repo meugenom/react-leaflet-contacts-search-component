@@ -1,0 +1,6 @@
+.leaflet-container {
+width: 100%;
+height: 100vh;
+background-image: linear-gradient(0deg,#fff1eb 0,#ace0f9);
+}
+
