@@ -25,28 +25,6 @@
     },
     {
       "type": "Feature",
-      "id": 1,
-      "isActive": false,
-      "properties": {
-        "name": "Lucile",
-        "username": "Mckee",
-        "age": 44,
-        "company": "NUTRALAB",
-        "address": "522 Rochester Avenue, Denio, Guam, 1592",
-        "about": "Nulla ea do consectetur velit qui dolor do veniam exercitation elit est. Ipsum nisi dolore aliquip cillum qui. Eu enim ipsum dolor culpa consequat velit duis Lorem consequat non id.",
-        "registered": "Wednesday, June 22, 2016 1:58 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "14.817565",
-          "51.084507"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 2,
       "isActive": true,
       "properties": {
@@ -152,50 +130,6 @@
         "coordinates": [
           "9.445179",
           "50.082813"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 8,
-      "isActive": false,
-      "properties": {
-        "name": "Beth",
-        "username": "Parks",
-        "age": 26,
-        "company": "FLEETMIX",
-        "address": "265 Herbert Street, Wanamie, Federated States Of Micronesia, 1043",
-        "about": "Magna velit et eu nulla aliquip ad cillum sit ipsum elit reprehenderit. Cillum officia irure consequat quis minim aliquip deserunt ullamco velit quis nostrud ipsum irure. Nulla reprehenderit fugiat veniam enim reprehenderit sint nostrud sint cupidatat.",
-        "registered": "Wednesday, April 8, 2020 4:27 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "7.092622",
-          "47.646015"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 9,
-      "isActive": false,
-      "properties": {
-        "name": "Alford",
-        "username": "Gomez",
-        "age": 56,
-        "company": "ZOUNDS",
-        "address": "263 Logan Street, Mapletown, North Carolina, 2050",
-        "about": "Aliqua laboris ipsum enim cupidatat in laboris occaecat cupidatat. Officia minim mollit in laboris ad ipsum sunt ullamco officia fugiat labore. Lorem nostrud aute laborum ut fugiat dolor non officia laboris irure velit quis. Id proident tempor ex adipisicing cillum laboris cillum pariatur proident ea incididunt. Cillum consequat eu eu minim exercitation sint qui esse non. Lorem exercitation ea ipsum laborum mollit nostrud.",
-        "registered": "Thursday, January 30, 2020 12:02 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "7.163842",
-          "54.42304"
         ]
       }
     },
@@ -553,28 +487,6 @@
     },
     {
       "type": "Feature",
-      "id": 26,
-      "isActive": false,
-      "properties": {
-        "name": "Macias",
-        "username": "Huffman",
-        "age": 41,
-        "company": "MOMENTIA",
-        "address": "319 Vanderbilt Street, Allamuchy, Palau, 8524",
-        "about": "Est eiusmod qui labore non et eiusmod sit aute magna non in. Pariatur proident commodo dolore officia quis eiusmod eiusmod cillum labore ea ea. Consectetur tempor ullamco enim duis duis fugiat laborum amet nisi anim anim.",
-        "registered": "Saturday, July 11, 2015 11:39 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "14.629952",
-          "53.842997"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 27,
       "isActive": true,
       "properties": {
@@ -795,28 +707,6 @@
     },
     {
       "type": "Feature",
-      "id": 37,
-      "isActive": false,
-      "properties": {
-        "name": "Dolores",
-        "username": "Macdonald",
-        "age": 45,
-        "company": "ZOARERE",
-        "address": "332 Gardner Avenue, Hiseville, Vermont, 2275",
-        "about": "Adipisicing in non duis est in laboris id id ea nisi nulla nulla. Occaecat culpa elit sunt non aliqua tempor. Consectetur est ut ipsum aliquip do dolore voluptate nostrud aliqua sint. Adipisicing ex ex non officia do.",
-        "registered": "Wednesday, January 27, 2016 2:59 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "12.236464",
-          "54.82172"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 39,
       "isActive": true,
       "properties": {
@@ -993,50 +883,6 @@
     },
     {
       "type": "Feature",
-      "id": 48,
-      "isActive": false,
-      "properties": {
-        "name": "Pugh",
-        "username": "Madden",
-        "age": 56,
-        "company": "AQUAZURE",
-        "address": "520 Sullivan Street, Carrsville, Georgia, 7677",
-        "about": "Lorem excepteur ex Lorem dolor exercitation. Non reprehenderit cupidatat sit duis adipisicing. Est esse consectetur sunt eiusmod anim incididunt culpa est ut. Excepteur ipsum reprehenderit culpa enim commodo ex sit dolore quis. Anim minim exercitation dolor occaecat. Aute sint consequat ad ex voluptate minim sit velit dolor occaecat sunt Lorem.",
-        "registered": "Wednesday, April 29, 2015 11:00 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "14.789353",
-          "48.676458"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 49,
-      "isActive": false,
-      "properties": {
-        "name": "Frankie",
-        "username": "Sosa",
-        "age": 53,
-        "company": "OTHERSIDE",
-        "address": "833 Montgomery Street, Alderpoint, Idaho, 3923",
-        "about": "Lorem Lorem mollit elit deserunt labore ea esse sint ullamco ea dolore incididunt. Nisi non eiusmod in et voluptate amet labore aliqua officia labore eiusmod nisi aliqua excepteur. Ullamco minim minim esse labore reprehenderit sunt sunt fugiat veniam occaecat irure. Commodo dolor velit eiusmod anim deserunt cupidatat laborum. Eiusmod et cillum Lorem officia elit exercitation.",
-        "registered": "Tuesday, December 11, 2018 7:47 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "12.728049",
-          "49.836664"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 50,
       "isActive": true,
       "properties": {
@@ -1169,50 +1015,6 @@
     },
     {
       "type": "Feature",
-      "id": 58,
-      "isActive": false,
-      "properties": {
-        "name": "Christensen",
-        "username": "Lowery",
-        "age": 37,
-        "company": "DAIDO",
-        "address": "458 Debevoise Avenue, Cazadero, Oregon, 7712",
-        "about": "Consectetur dolore ut tempor cillum sint excepteur amet eiusmod. Dolore ipsum ad ullamco ea ut. Laboris incididunt veniam pariatur culpa. Ullamco qui aute minim consequat ad qui pariatur. Et do consectetur magna nostrud in culpa non elit nisi nisi enim elit. Laboris amet commodo ullamco elit nostrud laboris. Voluptate in dolor tempor fugiat culpa commodo ut in nulla aliquip voluptate amet do.",
-        "registered": "Sunday, July 24, 2016 1:29 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "14.503224",
-          "49.057833"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 59,
-      "isActive": false,
-      "properties": {
-        "name": "Dawn",
-        "username": "Nash",
-        "age": 53,
-        "company": "PIVITOL",
-        "address": "969 Noll Street, Coultervillle, West Virginia, 2407",
-        "about": "Minim nisi non quis Lorem commodo ad et. Occaecat mollit culpa eu labore velit adipisicing laboris fugiat. Magna labore adipisicing sunt ex exercitation culpa in voluptate sunt tempor. Veniam officia qui voluptate ad aliquip voluptate nisi enim mollit eu dolor elit occaecat et. Dolore ex incididunt in proident ut qui id sunt aliqua. Non minim consectetur culpa ut eu nisi sit elit irure nostrud ad. Velit cupidatat deserunt veniam sit.",
-        "registered": "Wednesday, January 30, 2019 1:33 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "7.866521",
-          "54.243046"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 60,
       "isActive": true,
       "properties": {
@@ -1318,28 +1120,6 @@
         "coordinates": [
           "13.026807",
           "52.102739"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 68,
-      "isActive": false,
-      "properties": {
-        "name": "Bridges",
-        "username": "Henson",
-        "age": 69,
-        "company": "EXOSWITCH",
-        "address": "396 Colonial Road, Osage, Indiana, 6061",
-        "about": "Qui consequat sint anim minim mollit officia magna reprehenderit voluptate nulla cillum voluptate. Do fugiat proident irure ullamco fugiat consectetur duis. Et consequat anim id aliquip do culpa. Dolor dolore ea pariatur Lorem aliqua eu amet tempor veniam in id in.",
-        "registered": "Sunday, November 8, 2020 10:54 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "6.568477",
-          "49.122668"
         ]
       }
     },
@@ -2005,28 +1785,6 @@
     },
     {
       "type": "Feature",
-      "id": 104,
-      "isActive": false,
-      "properties": {
-        "name": "Long",
-        "username": "Gray",
-        "age": 46,
-        "company": "GAZAK",
-        "address": "904 Bath Avenue, Chilton, Florida, 3694",
-        "about": "Cillum magna ullamco ad fugiat in officia commodo culpa sint pariatur. Ullamco elit sint incididunt non dolore id sint. Consectetur eiusmod sunt dolor ea esse nulla officia quis aute duis labore culpa minim do. Aute velit non tempor consectetur tempor tempor et. Elit qui amet consequat consequat esse incididunt elit exercitation pariatur adipisicing amet. Ipsum consectetur eu in enim magna ut. Dolor tempor culpa duis culpa anim veniam velit non dolor nisi.",
-        "registered": "Monday, November 3, 2014 7:38 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "6.483298",
-          "53.498196"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 105,
       "isActive": true,
       "properties": {
@@ -2066,28 +1824,6 @@
         "coordinates": [
           "13.652822",
           "53.767894"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 107,
-      "isActive": false,
-      "properties": {
-        "name": "Tonia",
-        "username": "Ramsey",
-        "age": 26,
-        "company": "EARWAX",
-        "address": "682 Crystal Street, Kohatk, Missouri, 1300",
-        "about": "Consectetur duis laborum in amet laboris fugiat ipsum incididunt labore. Duis duis velit ex ut consequat aute. Lorem magna minim mollit ad enim sint duis labore ea irure. Mollit adipisicing fugiat ad pariatur consectetur ut sunt ipsum.",
-        "registered": "Sunday, September 7, 2014 6:23 PM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "14.841333",
-          "53.565318"
         ]
       }
     },
@@ -2247,28 +1983,6 @@
     },
     {
       "type": "Feature",
-      "id": 119,
-      "isActive": false,
-      "properties": {
-        "name": "Kendra",
-        "username": "Forbes",
-        "age": 28,
-        "company": "AUSTEX",
-        "address": "692 Mill Lane, Deercroft, Michigan, 2604",
-        "about": "Consequat nostrud veniam aliqua officia qui dolor enim officia incididunt. Occaecat nulla sunt occaecat cupidatat ipsum aute est esse. Culpa laboris tempor fugiat consequat aliqua elit pariatur aliquip ut elit. Ipsum est nostrud esse est anim. In fugiat cillum occaecat esse nulla in ad aliqua. Occaecat sint sit anim excepteur veniam aute do Lorem non ullamco commodo deserunt.",
-        "registered": "Saturday, October 27, 2018 1:08 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "12.618086",
-          "50.089519"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": 120,
       "isActive": false,
       "properties": {
@@ -2330,28 +2044,6 @@
         "coordinates": [
           "11.873141",
           "51.135005"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 124,
-      "isActive": false,
-      "properties": {
-        "name": "Ginger",
-        "username": "Pennington",
-        "age": 60,
-        "company": "RAMEON",
-        "address": "211 Gerritsen Avenue, Cotopaxi, Idaho, 6567",
-        "about": "Est commodo ipsum veniam amet labore minim eiusmod incididunt non. Fugiat amet ipsum cillum minim sint deserunt proident irure. Id nostrud reprehenderit laboris cillum dolore dolor. Cupidatat anim laboris ullamco aute est incididunt commodo reprehenderit sint. Adipisicing culpa quis tempor incididunt elit fugiat duis consectetur commodo aliquip sit quis sit cupidatat.",
-        "registered": "Saturday, February 15, 2014 4:11 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "12.689414",
-          "49.50818"
         ]
       }
     },
@@ -2440,28 +2132,6 @@
         "coordinates": [
           "8.729172",
           "52.068772"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 129,
-      "isActive": true,
-      "properties": {
-        "name": "Lula",
-        "username": "Stokes",
-        "age": 43,
-        "company": "COMFIRM",
-        "address": "281 Willow Place, Carrsville, North Dakota, 655",
-        "about": "Esse voluptate nisi reprehenderit magna non aliquip veniam pariatur tempor sunt. Irure dolore voluptate enim non sit est fugiat adipisicing ex cupidatat. Cillum labore quis occaecat magna deserunt commodo. Commodo sint elit eu cupidatat culpa. Id ex quis sint culpa duis eiusmod minim pariatur ut laboris.",
-        "registered": "Thursday, May 14, 2020 10:01 AM",
-        "description": "<img src=\"./img/face.png\" width=\"30px\" height=\"30px\">"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "12.757617",
-          "49.525649"
         ]
       }
     },
