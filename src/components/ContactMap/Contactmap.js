@@ -69,7 +69,7 @@ export default function ContactMap() {
           var marker = L.marker(latlng,{icon: activeIcon});        
                   
           marker.bindPopup("Name: "+ feature.properties.name + 
-            '<br/>' + "Surname" + feature.properties.username +
+            '<br/>' + "Surname: " + feature.properties.username +
             '<br/>' + "Age: " + feature.properties.age +
             '<br/>' + "Company: " + feature.properties.company +
             '<br/>' + "Address: " + feature.properties.address + 
