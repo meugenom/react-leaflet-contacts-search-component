@@ -64,7 +64,7 @@ export default function ContactMap() {
 
     var ActivePeoples = L.geoJson(persons,{
       pointToLayer: function(feature,latlng){
-        if (feature.isActive){
+        // if (feature.isActive){
         
           var marker = L.marker(latlng,{icon: activeIcon});        
                   
@@ -86,7 +86,7 @@ export default function ContactMap() {
             utils.Subscribe('click', marker, func);          
 
           
-          }        
+          //}        
           
           return marker;
       }
