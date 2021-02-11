@@ -10,6 +10,8 @@
 
 # production
 
+# temp folders
+/temp
 
 # misc
 .DS_Store
