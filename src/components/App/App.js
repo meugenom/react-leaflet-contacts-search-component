@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import "./App.css";
-
 import "../ContactMap/Contactmap"
 import ContactMap from '../ContactMap/Contactmap';
 
-export default function App() {
-  
-
-  return (
-  <ContactMap />
-  );
+ 
+class App extends Component {
+  render() {
+    const greeting = 'Welcome to React';
+    return (
+      <ContactMap/>
+    );
+  }
 }
+ 
+export default App;
