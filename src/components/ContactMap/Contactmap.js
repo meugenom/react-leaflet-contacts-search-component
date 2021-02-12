@@ -101,7 +101,7 @@ export default function ContactMap() {
     map.addLayer(clusters);
 
     //add search controls to the DOM 
-    new SearchControl();
+    //new SearchControl();
 
     return null
   }
