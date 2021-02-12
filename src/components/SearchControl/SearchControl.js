@@ -13,6 +13,8 @@ export default class SearchControl extends Component {
             inputValue: ""
         };
 
+        console.log(this.props.l)
+
         //bind for callbacks
         this.clickOpenSearchButton = this.clickOpenSearchButton.bind(this);
         this.clickCloseButton = this.clickCloseButton.bind(this);

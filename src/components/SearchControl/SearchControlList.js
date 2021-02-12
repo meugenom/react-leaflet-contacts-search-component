@@ -1,4 +1,6 @@
+import L from 'leaflet';
 import React, { Component }  from 'react';
+import { MapContainer,  useMap} from 'react-leaflet';
 
 
 export default class SearchControlList extends Component {
@@ -9,8 +11,10 @@ export default class SearchControlList extends Component {
             //date: new Date(),
             keys: "",
             activelist: "closed"
-        };
+        };   
     }
+
+    
     
     componentDidUpdate(){
         if(this.state.activelist != this.props.activelist){
@@ -26,7 +30,7 @@ export default class SearchControlList extends Component {
 
 render() {
     return (
-        <ul className="search-control-info-list">            
+        <ul className="search-control-info-list">             
             <li className="search-control-info-list-item">keys: {this.props.keys} visible: {this.props.activelist}</li>          
             <li className="search-control-info-list-item">keys: {this.props.keys} visible: {this.props.activelist}</li>          
             <li className="search-control-info-list-item">keys: {this.props.keys} visible: {this.props.activelist}</li>          
@@ -35,11 +39,3 @@ render() {
     );
     }
 }
-
-//<li className="search-control-info-list-item">{this.state.date.toLocaleTimeString()}</li>
-//setInterval(tick, 1000);
-//<li className="search-control-info-list-item">{this.props.visible}</li>
-
-
-  
-

@@ -4,16 +4,13 @@ import L from 'leaflet';
 import { MapContainer,  useMap} from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import SearchControl from '../SearchControl/SearchControl';
+import 'leaflet-boundary-canvas';
 
 import Utils from '../Utils/Utilits';
 import boundaries from "../../data/boundaries.json";
 import persons from "../../data/persons.json";
 
-
-import 'leaflet-boundary-canvas';
-
-
-export default function ContactMap() {
+export default function ContactMap(props) {
 
   /**
    * hook for changing component
@@ -21,7 +18,7 @@ export default function ContactMap() {
    */
 
   useEffect(() => {
-    //console.log('This is called when the component is mounted!');
+    console.log('This is called when the component is mounted!');
   }, []);
 
   const center = [51.5167, 9.917];
@@ -30,7 +27,7 @@ export default function ContactMap() {
     fill: false
   };
   const zoom = 6;
-
+  
   //name ContactMapComponent is important to doing with hook and define map from useMap();
   function ContactMapComponent() {
     const map = useMap()
@@ -81,7 +78,6 @@ export default function ContactMap() {
         var utils = new Utils();
         utils.Subscribe('click', marker, func);
         
-        
         return marker;
       }
 
@@ -99,16 +95,14 @@ export default function ContactMap() {
     // clusters.addLayer(inactivePeoples);
     clusters.addLayer(boundariesLayer);
     map.addLayer(clusters);
-
-    //add search controls to the DOM 
-    //new SearchControl();
-
+    
     return null
   }
 
   
   return (
     <div>
+      <SearchControl l="test"/>
       <MapContainer className="markercluster-map" center={center} zoom={zoom} maxZoom={18}>
         <ContactMapComponent />         
         <MarkerClusterGroup/>        
