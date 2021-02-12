@@ -22,8 +22,8 @@ export default class SearchControl extends Component {
     clickOpenSearchButton() {
         this.setState(state => ({
             isSearchVisible: !state.isSearchVisible,
-            //isWrapperList: this.state.isWrapperList=="opened"?"closed":"opened"
-            isWrapperList: !this.state.isSearchVisible?"closed":"opened"
+            isWrapperList: "closed",
+            inputValue: ""
         }));
     }
 
