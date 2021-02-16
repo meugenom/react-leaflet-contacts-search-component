@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import "./App.css";
-import ContactMap from '../ContactMap/Contactmap';
-// import SearchControl from '../SearchControl/SearchControl'
+import ContactMap from '../ContactMap/ContactMap';
 
  
 class App extends Component {
   constructor(props) {
-    super(props);       
+    super(props);
   }
 
   render() {

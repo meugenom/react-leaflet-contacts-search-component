@@ -13,19 +13,18 @@ export default class SearchControl extends Component {
             inputValue: ""
         };
 
-        console.log(this.props.l)
 
         //bind for callbacks
         this.clickOpenSearchButton = this.clickOpenSearchButton.bind(this);
         this.clickCloseButton = this.clickCloseButton.bind(this);
-        this.pressKeyInput = this.pressKeyInput.bind(this);
+        this.pressKeyInput = this.pressKeyInput.bind(this);      
     }
 
     clickOpenSearchButton() {
         this.setState(state => ({
             isSearchVisible: !state.isSearchVisible,
             isWrapperList: "closed",
-            inputValue: ""
+            inputValue: ""        
         }));
     }
 
@@ -44,13 +43,16 @@ export default class SearchControl extends Component {
         //visible close button 
         this.setState(state => ({
             isCloseButtonVisible: true,
-            isWrapperList: "opened",
+            isWrapperList: "opened"
         }));
 
-
-        //console.log(event.key)
-        //if(event.keyCode == 13)        
+        //TODO: if(event.keyCode == 13)        
     }
+
+    //it's call from SearchControlList to this parent component
+    updateList = (list) => {
+        this.props.updateInfo(list);
+      }
 
     render() {
       return (
@@ -82,8 +84,10 @@ export default class SearchControl extends Component {
             <section className={this.state.isWrapperList=="opened"?"search-control-info-wrapper":"search-control-info-wrapper search-control-info-wrapper-close"} >
                 <section className="search-control-info">            
                     <SearchControlList 
+
                         activelist={this.state.isWrapperList} 
                         keys={this.state.inputValue}
+                        updateList = {this.updateList}
                     />
                 </section>            
             </section>    
