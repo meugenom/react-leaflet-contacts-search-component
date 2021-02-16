@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./App.css";
-import ContactMap from '../ContactMap/ContactMap';
+import ContactMap from '../ContactMap/Contactmap';
 
  
 class App extends Component {

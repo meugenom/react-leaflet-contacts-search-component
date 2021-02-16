@@ -203,7 +203,8 @@ input[draggable="true"], textarea {
     display: flex;
     flex-direction: column;
     background: transparent;
-    height: 100%;
+    max-height  : 400px;
+    /* height: 100%; */
     outline: none;
 }
 
