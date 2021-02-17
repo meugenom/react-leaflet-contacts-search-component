@@ -63,7 +63,7 @@ export default function ContactMap(props) {
       });
 
       marker.bindPopup(
-        '<img src="../../img/face.png"/>'+
+        '<img src="./img/face.png"/>'+
          '<br/>'+feature.properties.username + ' from '+feature.properties.city +        
         '<br/>' + "Skills: " + feature.properties.description
       );
@@ -114,7 +114,7 @@ function updateInfo(persons){
     pointToLayer: function (feature, latlng) {      
       var marker = L.marker(latlng, { icon: activeIcon});
       marker.bindPopup(
-        '<img src="../../img/face.png"/>'+
+        '<img src="./img/face.png"/>'+
          '<br/>'+feature.properties.username + ' from '+feature.properties.city +        
         '<br/>' + "Skills: " + feature.properties.description
       );
