@@ -9,12 +9,10 @@
     "json-loader": "^0.5.7",
     "leaflet": "^1.7.1",
     "leaflet-boundary-canvas": "^1.0.0",
+    "leaflet.markercluster": "^1.4.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-leaflet": "^3.1.0",
-    "react-leaflet-markercluster": "^3.0.0-rc1",
-    "react-redux": "^7.2.2",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.0.1"
   },

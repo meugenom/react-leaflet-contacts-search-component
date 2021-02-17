@@ -1,0 +1,134 @@
+{"type":"FeatureCollection",
+"features":[
+    { 
+        "type":"Feature",
+        "id":1,
+        "geometry":{
+            "coordinates":[50.1106444,8.6820917],
+            "type":"Point"},
+        "properties":{
+            "city":"Frankfurt am Main",
+            "description":"Java",
+            "state":"Hessen",
+            "username":"edgarlinde"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":2,
+        "geometry":{
+            "coordinates":[50.1006,8.7665],
+            "type":"Point"},
+        "properties":{
+            "city":"Offenbach",
+            "description":"Javascript Java Python",
+            "state":"Hessen",
+            "username":"eugenemdev"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":3,
+        "geometry":{
+            "coordinates":[52.5167,13.3833],
+            "type":"Point"},
+        "properties":{
+            "city":"Berlin",
+            "description":"Java Python und gute Laune",
+            "state":"Berlin",
+            "username":"maxim"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":4,
+        "geometry":{
+            "coordinates":[52.5167,13.3833],
+            "type":"Point"},
+        "properties":{
+            "city":"Berlin",
+            "description":"python,  data science",
+            "state":"Berlin",
+            "username":"igor"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":5,
+        "geometry":{
+            "coordinates":[52.5167,13.3833],
+            "type":"Point"},
+        "properties":{
+            "city":"Berlin",
+            "description":"java data science",
+            "state":"Berlin",
+            "username":"Alex"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":6,
+        "geometry":{
+            "coordinates":[52.5167,13.3833],
+            "type":"Point"},
+        "properties":{
+            "city":"Berlin",
+            "description":"java spring-boot",
+            "state":"Berlin",
+            "username":"igor"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":7,
+        "geometry":{
+            "coordinates":[50.1106444,8.6820917],
+            "type":"Point"},
+        "properties":{
+            "city":"Frankfurt am Main",
+            "description":"javascript AngularJS ReactJS",
+            "state":"Hessen",
+            "username":"pickachu"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":8,
+        "geometry":{
+            "coordinates":[50.1106444,8.6820917],
+            "type":"Point"},
+        "properties":{
+            "city":"Frankfurt am Main",
+            "description":"Java AI",
+            "state":"Hessen",
+            "username":"maxbrulow"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":9,
+        "geometry":{
+            "coordinates":[48.1372,11.5755],
+            "type":"Point"},
+        "properties":{
+            "city":"Munich",
+            "description":"Java",
+            "state":"Bavaria",
+            "username":"bigTester"
+        }
+    },
+    { 
+        "type":"Feature",
+        "id":10,
+        "geometry":{
+            "coordinates":[48.1372,11.5755],
+            "type":"Point"},
+        "properties":{
+            "city":"Munich",
+            "description":"AngularJS BackboneJS",
+            "state":"Bavaria",
+            "username":"jsbeat"
+        }
+    } 
+]
+}

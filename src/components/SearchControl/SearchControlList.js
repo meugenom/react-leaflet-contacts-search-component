@@ -30,36 +30,49 @@ export default class SearchControlList extends Component {
     }
 
     search(word){
-        this.list = this.parser.search(word);     
+        this.list = this.parser.search(word);
         if(this.list[0]){
-            //send list tp props to the parent component
-        this.props.updateList(this.list);
+            //send list to props of the parent component 
+            this.props.updateList(this.list);
+
+            const sectionList = document.getElementsByClassName('search-control-info-list');
+            
+            while (sectionList[0].firstChild) {
+                sectionList[0].removeChild(sectionList[0].firstChild);
+              }
+      
+
+            this.list.forEach(token =>{
+                var li = document.createElement('li');
+                li.className = 'search-control-info-list-item' 
+                li.setAttribute('key', token.getId())     
+                li.innerHTML= `
+                <span>
+                    <img src="../../img/face.png"/>
+                    <h3>${token.getFeature().properties.name} from Frankfurt</h3>
+                </span>
+                <span>                
+                    <p>${token.getFeature().properties.about}</p>                
+                <span>
+                `
+                sectionList[0].appendChild(li);
+            })
+            
         }
     }
 
 
 render() {
 
-
-    var listItems = this.list.map((token) =>
-        
-    <li key={token.getId()} 
-            className="search-control-info-list-item">
-                Name: {token.getFeature().properties.name}
-                <br/>Username: {token.getFeature().properties.username}
-                <br/>Company: {token.getFeature().properties.company}
-                
-        </li>
-    );
-
-
     return (
-        <ul className="search-control-info-list">             
-            <li className="search-control-info-list-item">
-                debug row| keys: {this.props.keys} |  visible: {this.props.activelist}
-            </li>            
-            {listItems}
+        <ul className="search-control-info-list">                         
         </ul>
     );
     }
 }
+
+/**
+ *  <li className="search-control-info-list-item">
+        debug row| keys: {this.props.keys} |  visible: {this.props.activelist}
+    </li>            
+ */
