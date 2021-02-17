@@ -19,7 +19,8 @@ export default function ContactMap(props) {
     fill: false 
   };
 
-  const center = [51.5167, 9.917];
+  //const center = [51.5167, 9.917];
+  const center = [51.0, 10.917];
   const zoom = 6;
   const latLngGeom = boundaries.geometry; //Define real geometry here
   const osmUrl = 'https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
@@ -89,13 +90,19 @@ export default function ContactMap(props) {
   });
 
 
-  var clusters = L.markerClusterGroup();    
+  var clusters = L.markerClusterGroup({
+      spiderfyOnMaxZoom: true,
+	    showCoverageOnHover: true,
+	    zoomToBoundsOnClick: true,
+      chunkedLoading: true
+    });    
+    
     clusters.addLayer(boundariesLayer);
     clusters.addLayer(ActivePeoples);
 
   useEffect(() => {
     
-    mapRef.current.addLayer(clusters)             
+    mapRef.current.addLayer(clusters)           
 
   }, [clusters])
 
@@ -131,6 +138,10 @@ function updateInfo(persons){
   });
 
   clusters.addLayer(ActivePeoples);
+
+  //return to defaults
+  mapRef.current.setZoom(zoom);
+  mapRef.current.setView(center);
 
 }
 
