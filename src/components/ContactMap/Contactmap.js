@@ -46,8 +46,6 @@ export default function ContactMap(props) {
   /**
    *  Set markers and position 
    */
-
-  const markerRef = useRef(null)
   
   //set new icon image for markers
   const activeIcon = L.icon({
@@ -56,8 +54,7 @@ export default function ContactMap(props) {
     iconAnchor: [12,41]
   });
 
-  const [markerPosition, setMarkerPosition] =  useState({ lat:42.6944, lng:23.3328  })
-  
+
   var ActivePeoples = L.geoJson(persons, {
     pointToLayer: function (feature, latlng) {
       
@@ -65,13 +62,10 @@ export default function ContactMap(props) {
         icon: activeIcon
       });
 
-      marker.bindPopup("Name: " + feature.properties.name +
-        '<br/>' + "Surname: " + feature.properties.username +
-        '<br/>' + "Age: " + feature.properties.age +
-        '<br/>' + "Company: " + feature.properties.company +
-        '<br/>' + "About: " + feature.properties.about +
-        '<br/>'+
-        '<br/>' + feature.properties.description + ' '
+      marker.bindPopup(
+        '<img src="../../img/face.png"/>'+
+         '<br/>'+feature.properties.username + ' from '+feature.properties.city +        
+        '<br/>' + "Skills: " + feature.properties.description
       );
 
       //marker.openPopup() doesnt work in Safari
@@ -87,11 +81,13 @@ export default function ContactMap(props) {
 
   });
 
+
   const boundariesLayer = L.geoJSON(boundaries, {
     style: function (feature) {
       return boundariesColor;
     }
   });
+
 
   var clusters = L.markerClusterGroup();    
     clusters.addLayer(boundariesLayer);
@@ -110,37 +106,23 @@ export default function ContactMap(props) {
  * @param list  returns the list of tokens to updating of our markers
  * @return new person.json object 
  */
-function updateInfo(list){      
-  const newPersons = { "type": "FeatureCollection", "features": [] }  
-  list.forEach(token =>{
-    newPersons.features.push(token.getFeature())
-  })        
-  console.log(newPersons);
+function updateInfo(persons){   
 
   clusters.removeLayer(ActivePeoples);
 
-  ActivePeoples = L.geoJson(newPersons, {
-    pointToLayer: function (feature, latlng) {
-      
-      var marker = L.marker(latlng, {
-        icon: activeIcon
-      });
-
-      marker.bindPopup("Name: " + feature.properties.name +
-        '<br/>' + "Surname: " + feature.properties.username +
-        '<br/>' + "Age: " + feature.properties.age +
-        '<br/>' + "Company: " + feature.properties.company +
-        '<br/>' + "About: " + feature.properties.about +
-        '<br/>'+
-        '<br/>' + feature.properties.description + ' '
+  ActivePeoples = L.geoJson(persons, {
+    pointToLayer: function (feature, latlng) {      
+      var marker = L.marker(latlng, { icon: activeIcon});
+      marker.bindPopup(
+        '<img src="../../img/face.png"/>'+
+         '<br/>'+feature.properties.username + ' from '+feature.properties.city +        
+        '<br/>' + "Skills: " + feature.properties.description
       );
-
       //marker.openPopup() doesnt work in Safari
       //this is some hook             
       function func() {
         marker.openPopup();
       }        
-
       var utils = new Utils();
       utils.Subscribe('click', marker, func);        
       return marker;
@@ -152,8 +134,21 @@ function updateInfo(list){
 
 }
 
+/**
+ * 
+ */
+
+ function closeSearch(event){
+   if(event == 'closed'){
+    
+    updateInfo(persons);
+
+
+   }
+ }
+
 return <div>
-          <SearchControl updateInfo={updateInfo}/>
+          <SearchControl updateInfo={updateInfo} closeSearch={closeSearch}/>
           <div id='map'></div>
         </div>
 

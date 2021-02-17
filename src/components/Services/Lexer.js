@@ -51,13 +51,18 @@ const Lexer =  class Lexer {
 
         this.data.features.forEach(feature => {                    
             
-            this.createToken(feature, 'name');
             this.createToken(feature, 'username');
-            this.createToken(feature, 'company');
-            this.createToken(feature, 'age');       
+            this.createToken(feature, 'city');
+            this.createToken(feature, 'state');
+            
+            //TODO: if we have other options
+            //this.createToken(feature, 'company');
+            //this.createToken(feature, 'age');       
                  
-            this.checkTokens(feature.properties.about, feature);
-            this.checkTokens(feature.properties.address, feature);        
+            this.checkTokens(feature.properties.description, feature);
+            
+            //TODO: if we have other options and need to see by regex expression
+            //this.checkTokens(feature.properties.address, feature);        
             
         })  
 
@@ -65,11 +70,13 @@ const Lexer =  class Lexer {
     }
 
     checkTokens(str, feature){
+
         var patterns = grammar.tokens.patterns;
         var line = 0;
         var column = 0;
 
-        for(var key in patterns){            
+        for(var key in patterns){      
+
             const array = this.findMatches(str, patterns[key]);           
             if(array!=null){
                 array.forEach(value => {
@@ -111,7 +118,7 @@ const Lexer =  class Lexer {
         this.stream.push(token);           
     }
      
-    findMatches(str, pattern){        
+    findMatches(str, pattern){ 
         return str.match(pattern)
     }
 

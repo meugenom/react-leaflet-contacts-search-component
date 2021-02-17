@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import SearchControlList from './SearchControlList'
 import './search-control.css'
 
@@ -26,6 +26,9 @@ export default class SearchControl extends Component {
             isWrapperList: "closed",
             inputValue: ""        
         }));
+
+        //send close to high component for update map view
+        this.props.closeSearch('closed');
     }
 
 
@@ -36,6 +39,9 @@ export default class SearchControl extends Component {
             isWrapperList: "closed",
             inputValue: ''
         }));
+
+        //send close to high component for update map view
+        this.props.closeSearch('closed');
     }
 
     pressKeyInput(event) {
@@ -45,14 +51,22 @@ export default class SearchControl extends Component {
             isCloseButtonVisible: true,
             isWrapperList: "opened"
         }));
-
-        //TODO: if(event.keyCode == 13)        
+        //TODO: if(event.keyCode == 13)
+        
     }
 
     //it's call from SearchControlList to this parent component
     updateList = (list) => {
-        this.props.updateInfo(list);
-      }
+        
+        const newPersons = { "type": "FeatureCollection", "features": [] }  
+        list.forEach(token =>{
+            newPersons.features.push(token.getFeature())
+        })
+        
+        this.props.updateInfo(newPersons);
+
+
+    }
 
     render() {
       return (
@@ -71,7 +85,7 @@ export default class SearchControl extends Component {
                     type="text" 
                     className="search-input search-control-input" 
                     placeholder="custom placeholder" 
-                    onKeyPress={this.pressKeyInput}
+                    onKeyDown={this.pressKeyInput}
                     onChange={e => this.setState({ inputValue: e.target.value })} 
                     value={this.state.inputValue}/>                
                 <button className={ this.state.isCloseButtonVisible ? "search-control-close-button search-control-close-button-active": "search-control-close-button"} onClick={this.clickCloseButton}>

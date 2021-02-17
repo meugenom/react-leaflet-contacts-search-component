@@ -70,6 +70,18 @@ export default class Parser {
         return result
     }
 
+    getAnyTokenByID(id){
+        var list = this.sortedStream;
+        var result = []
+        list.map(function(token){
+            //console.log("id: "+ id + "  token.id: "+ token.getId())            
+            if(id == token.getId()){
+              result.push(token);  
+            }
+        })
+         return this.uniq(result);
+    }
+
     search(word) {
         var list = this.sortedStream;
         var result = []
