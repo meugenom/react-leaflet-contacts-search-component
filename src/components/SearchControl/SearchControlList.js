@@ -1,8 +1,6 @@
 import React, { Component }  from 'react';
 import Parser from '../Services/Parser'
 
-var parser = new Parser();
-var searchedList = []
 
 export default class SearchControlList extends Component {
     
@@ -13,6 +11,11 @@ export default class SearchControlList extends Component {
             keys: "",
             activelist: "closed"
         };
+
+        this.parser = new Parser();
+        this.searchedList = []
+
+
     }
 
     componentDidUpdate(){
@@ -29,25 +32,30 @@ export default class SearchControlList extends Component {
           });          
     }
 
-    clickListItem(e){        
-        
+    clickListItem = ( props, parser, token ) => ( event ) => {        
+        var searchedList = [];
         const li = document.querySelectorAll('li[choosed]');
+        const liSection = document.querySelectorAll('li[key]');
         if(li[0]){            
-            var key = li[0].getAttribute('key');
-            var l = parser.getAnyTokenByID(key);                                                                        
+            searchedList.push(token);
+            props.updateList(searchedList);
+            
+            for(var i=0; i < liSection.length; i++){
+                if(liSection[i].getAttribute('choosed')==null){
+                    liSection[i].remove();
+                }
+            }
+
         }
-        
-        console.log('was clicked')
-        
     }
 
     search(word){        
-        searchedList = parser.search(word);
+        this.searchedList = this.parser.search(word);
         
-        if(searchedList[0]){
+        if(this.searchedList[0]){
             
             //send list to props of the parent component 
-            this.props.updateList(searchedList);
+            this.props.updateList(this.searchedList);
 
             const sectionList = document.getElementsByClassName('search-control-info-list');
             
@@ -57,7 +65,7 @@ export default class SearchControlList extends Component {
             
               //console.log(searchedList)
 
-              searchedList.forEach(token =>{
+              this.searchedList.forEach(token =>{
                 var li = document.createElement('li');
                 li.className = 'search-control-info-list-item' 
                 li.setAttribute('key', token.getId())     
@@ -71,7 +79,7 @@ export default class SearchControlList extends Component {
                         <p>Skills: ${token.getFeature().properties.description}</p>                
                     </spane> `
 
-                li.addEventListener("click", this.clickListItem, this.props);
+                li.addEventListener("click", this.clickListItem(this.props, this.parser, token));
                 li.addEventListener("click", function(e){
                     if (e.target && e.target.matches("li.search-control-info-list-item")) {
                         e.target.setAttribute("choosed", "true"); // new attribute                        

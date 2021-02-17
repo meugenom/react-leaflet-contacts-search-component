@@ -139,11 +139,8 @@ function updateInfo(persons){
  */
 
  function closeSearch(event){
-   if(event == 'closed'){
-    
-    updateInfo(persons);
-
-
+   if(event == 'closed'){    
+      updateInfo(persons);
    }
  }
 

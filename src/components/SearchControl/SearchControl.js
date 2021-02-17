@@ -29,6 +29,11 @@ export default class SearchControl extends Component {
 
         //send close to high component for update map view
         this.props.closeSearch('closed');
+        //remove all children from search list
+        const sectionList = document.getElementsByClassName('search-control-info-list');            
+            while (sectionList[0].firstChild) {
+                sectionList[0].removeChild(sectionList[0].firstChild);
+              }
     }
 
 
@@ -42,6 +47,11 @@ export default class SearchControl extends Component {
 
         //send close to high component for update map view
         this.props.closeSearch('closed');
+        //remove all children from search list
+        const sectionList = document.getElementsByClassName('search-control-info-list');            
+            while (sectionList[0].firstChild) {
+                sectionList[0].removeChild(sectionList[0].firstChild);
+              }
     }
 
     pressKeyInput(event) {
