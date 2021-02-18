@@ -72,11 +72,11 @@ export default class Parser {
 
     search(word) {
         var list = this.sortedStream;
-        var result = []
+        var result = []     
         var patternWord = word.toLowerCase();
-        //var pattern = "/" + patternWord + "/"
 
-        if (word.length >= 2) {
+
+        if (word.length >= 1) {
 
             list.map(function (token) {
 
@@ -87,16 +87,16 @@ export default class Parser {
                     var value = token.getValue();
                     var type = token.getType();
 
-                    if (value.toLowerCase() == patternWord || type == patternWord) {
-
+                    //if (value.toLowerCase() == patternWord || type == patternWord) {
+                    if ((value.toLowerCase()).match(patternWord) || type.match(patternWord)) {
                         result.push(token);
 
                     }
 
                 } else {
 
-                    if (token.getValue() == patternWord) {
-
+                    //if (token.getValue() == patternWord) {
+                    if ((token.getValue()).match(patternWord)) {
                         result.push(token);
 
                     }
@@ -110,10 +110,6 @@ export default class Parser {
 
         //if result []
         return result;
-    }
-
-    findMatches(str, pattern) {
-        return str.match(pattern)
     }
 
     uniq(a) {
