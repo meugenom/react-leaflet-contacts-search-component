@@ -2,6 +2,7 @@ import React, {Component, useState} from 'react';
 import SearchControlList from './SearchControlList'
 import './search-control.css'
 
+
 export default class SearchControl extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,8 @@ export default class SearchControl extends Component {
         //bind for callbacks
         this.clickOpenSearchButton = this.clickOpenSearchButton.bind(this);
         this.clickCloseButton = this.clickCloseButton.bind(this);
-        this.pressKeyInput = this.pressKeyInput.bind(this);      
+        this.pressKeyInput = this.pressKeyInput.bind(this); 
+        
     }
 
     clickOpenSearchButton() {
@@ -47,6 +49,7 @@ export default class SearchControl extends Component {
 
         //send close to high component for update map view
         this.props.closeSearch('closed');
+        
         //remove all children from search list
         const sectionList = document.getElementsByClassName('search-control-info-list');            
             while (sectionList[0].firstChild) {
@@ -54,16 +57,47 @@ export default class SearchControl extends Component {
               }
     }
 
-    pressKeyInput(event) {
+    
+    pressKeyInput = (props, document) =>(e) => {
         
         //visible close button 
         this.setState(state => ({
             isCloseButtonVisible: true,
             isWrapperList: "opened"
         }));
-        //TODO: if(event.keyCode == 13)
+                
+        //var nodes = document.getElementsByClassName("search-control-info-list-item");
+
+        if (e.keyCode == 40) { 
+            //TODO 
+            console.log('key DOWN')
+        } else if (e.keyCode == 38) { 
+            //TODO 
+            console.log('key UP')
+        } else if (e.keyCode == 13) {
+            //TODO 
+            console.log('key ENTER')
+        } else if(e.keyCode == 8) {
+                    
+            console.log('key BACKSPACE')
+            
+            
+            if(this.state.inputValue.length == 0){                
+                //remove all markers
+                props.updateInfo([]);
+                //remove all DOM elements form list
+                const sectionList = document.getElementsByClassName('search-control-info-list');                            
+                while (sectionList[0].firstChild) {
+                    sectionList[0].removeChild(sectionList[0].firstChild);
+                }
+
+            }            
+            
+        }
+        
         
     }
+
 
     //it's call from SearchControlList to this parent component
     updateList = (list) => {
@@ -95,7 +129,7 @@ export default class SearchControl extends Component {
                     type="text" 
                     className="search-input search-control-input" 
                     placeholder="custom placeholder" 
-                    onKeyDown={this.pressKeyInput}
+                    onKeyDown={this.pressKeyInput(this.props, document)}
                     onChange={e => this.setState({ inputValue: e.target.value })} 
                     value={this.state.inputValue}/>                
                 <button className={ this.state.isCloseButtonVisible ? "search-control-close-button search-control-close-button-active": "search-control-close-button"} onClick={this.clickCloseButton}>
