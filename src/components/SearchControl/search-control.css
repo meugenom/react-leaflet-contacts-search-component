@@ -1,7 +1,7 @@
 .search-box {
     position: absolute;
-    left: 18px;
-    top: 90px;
+    left: 10px;
+    top: 80px;
 }
 .search-control-wrap {
     --icon-width: 30px;
@@ -114,17 +114,16 @@
 .search-control-active .search-control-input {
     padding: 0px 26px 0px 0px;
     height: var(--active-height);
-    width: 244px;
+    width: 200px;
+    
+    border: 1px solid transparent;
     
 }
 
-
-input[draggable="true"], textarea {
-        -webkit-rtl-ordering: logical;
-        -webkit-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        user-select: text;
+input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
 }
 
 
@@ -277,6 +276,12 @@ input[draggable="true"], textarea {
 
 .search-control-info-list-item:hover {
     background-color: var(--background-color-hover);
+}
+
+/*when navigating through the items using the arrow keys:*/
+.item-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
 }
 
 .search-control-info-list-item:hover p,
