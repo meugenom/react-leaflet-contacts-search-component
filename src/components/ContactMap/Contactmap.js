@@ -19,6 +19,11 @@ export default function ContactMap(props) {
     fill: false 
   };
 
+
+  //we need to know heigth and width of our browser window
+  console.log(window.innerHeight)
+  console.log(window.innerWidth)
+
   //const center = [51.5167, 9.917];
   const center = [51.0, 10.917];
   const zoom = 6;
@@ -113,11 +118,16 @@ export default function ContactMap(props) {
  * @param list  returns the list of tokens to updating of our markers
  * @return new person.json object 
  */
-function updateInfo(persons){   
+function updateInfo(data){
+  
+
+  if(data.length == 0){
+    data = persons;
+  }
 
   clusters.removeLayer(ActivePeoples);
 
-  ActivePeoples = L.geoJson(persons, {
+  ActivePeoples = L.geoJson(data, {
     pointToLayer: function (feature, latlng) {      
       var marker = L.marker(latlng, { icon: activeIcon});
       marker.bindPopup(
