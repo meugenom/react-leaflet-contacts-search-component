@@ -11,7 +11,8 @@
             "city":"Frankfurt am Main",
             "description":"Java",
             "state":"Hessen",
-            "username":"edgarlinde"
+            "username":"edgarlinde",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -24,7 +25,8 @@
             "city":"Offenbach",
             "description":"Javascript Java Python",
             "state":"Hessen",
-            "username":"eugenemdev"
+            "username":"eugenemdev",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -37,7 +39,8 @@
             "city":"Berlin",
             "description":"Java Python bash",
             "state":"Berlin",
-            "username":"maxim"
+            "username":"maxim",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -50,7 +53,8 @@
             "city":"Berlin",
             "description":"python,  data science",
             "state":"Berlin",
-            "username":"igor"
+            "username":"igor",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -63,7 +67,8 @@
             "city":"Berlin",
             "description":"java data science",
             "state":"Berlin",
-            "username":"Alex"
+            "username":"Alex",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -76,7 +81,8 @@
             "city":"Berlin",
             "description":"java spring-boot",
             "state":"Berlin",
-            "username":"igor"
+            "username":"igor",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -89,7 +95,8 @@
             "city":"Frankfurt am Main",
             "description":"javascript AngularJS ReactJS",
             "state":"Hessen",
-            "username":"pickachu"
+            "username":"pickachu",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
         }
     },
     { 
@@ -102,7 +109,8 @@
             "city":"Frankfurt am Main",
             "description":"Java AI",
             "state":"Hessen",
-            "username":"maxbrulow"
+            "username":"maxbrulow",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/barbara.png"
         }
     },
     { 
@@ -115,7 +123,8 @@
             "city":"Munich",
             "description":"Java",
             "state":"Bavaria",
-            "username":"bigTester"
+            "username":"bigTester",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/barbara.png"
         }
     },
     { 
@@ -128,7 +137,8 @@
             "city":"Munich",
             "description":"AngularJS BackboneJS",
             "state":"Bavaria",
-            "username":"jsbeat"
+            "username":"jsbeat",
+            "img" : "https://homepages.cae.wisc.edu/~ece533/images/barbara.png"
         }
     } 
 ]

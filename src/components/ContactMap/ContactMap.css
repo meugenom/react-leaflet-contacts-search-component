@@ -1,0 +1,22 @@
+.popups-widget-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.popups-widget-top img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.popups-widget-top p{
+    line-height: 0.5;
+    margin-left: 5px;
+    margin-top: 8px;
+    color:rgba(236, 155, 15, 0.918);    
+}
+
+popups-widget-bottom {
+    margin-top: -15px;    
+}
+

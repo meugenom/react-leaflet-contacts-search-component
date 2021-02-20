@@ -71,7 +71,7 @@ export default class SearchControlList extends Component {
                 li.setAttribute('key', token.getId())     
                 li.innerHTML= `
                     <span-left>
-                        <img src="./img/face.png"/>
+                        <img src="${token.getFeature().properties.img}"/>
                         <h3>${token.getFeature().properties.username}</h3>
                         <h3>${token.getFeature().properties.city}</h3>                    
                     </span-left>

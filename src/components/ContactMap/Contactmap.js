@@ -6,6 +6,7 @@ import 'leaflet-boundary-canvas';
 import Utils from '../Utils/Utilits';
 import boundaries from "../../data/boundaries.json";
 import persons from "../../data/persons.json";
+import './ContactMap.css'
 
 
 export default function ContactMap(props) {
@@ -69,9 +70,17 @@ export default function ContactMap(props) {
       });
 
       marker.bindPopup(
-        '<img src="./img/face.png"/>'+
-         '<br/>'+feature.properties.username + ' from '+feature.properties.city +        
-        '<br/>' + "Skills: " + feature.properties.description
+        '<div class="popups-widget-top">'+
+          '<img src="'+feature.properties.img+'" alt="avatar"/>'+
+            '<div class="popups-top-right-section">'+
+            '<p> '+feature.properties.username + '</p>'+
+            '<p> from '+feature.properties.city+'</p>' +       
+            '</div>'+
+         '</div>'+
+         '<div class="popups-widget-bottom">'+
+            ' Skills: ' + feature.properties.description +
+         '</div>'
+
       );
 
       //marker.openPopup() doesnt work in Safari
@@ -136,9 +145,16 @@ function updateInfo(data){
     pointToLayer: function (feature, latlng) {      
       var marker = L.marker(latlng, { icon: activeIcon});
       marker.bindPopup(
-        '<img src="./img/face.png"/>'+
-         '<br/>'+feature.properties.username + ' from '+feature.properties.city +        
-        '<br/>' + "Skills: " + feature.properties.description
+        '<div class="popups-widget-top">'+
+          '<img src="'+feature.properties.img+'" alt="avatar"/>'+
+            '<div class="popups-top-right-section">'+
+            '<p> '+feature.properties.username + '</p>'+
+            '<p> from '+feature.properties.city+'</p>' +       
+            '</div>'+
+         '</div>'+
+         '<div class="popups-widget-bottom">'+
+            ' Skills: ' + feature.properties.description +
+         '</div>'
       );
       //marker.openPopup() doesnt work in Safari
       //this is some hook             
