@@ -27,17 +27,26 @@ this project base on:
     
 `
 2.  in the terminal install npm packages
-    `yarn add json-loader leaflet leaflet-boundary-canvas leaflet.markercluster props-types react-scripts react-dom`   
+    ```
+    yarn add json-loader leaflet leaflet-boundary-canvas leaflet.markercluster props-types react-scripts react-dom
+    ```   
 
-3. in to package.json add `"homepage": "./",`
+3. in to package.json add 
+```javascript
+    "homepage": "./",
+    ```
 it's very important to making bundle files with right paths
 
 4. copy files from src/data, src/img and components ContactMap, SearchControl, Services, Utils
 
-5. in your's App.js hljs-addition
-`import ContactMap from '../ContactMap/Contactmap';`
+5. in your's App.js 
+```javascript
+    import ContactMap from '../ContactMap/Contactmap';
+```
+
 and
-`
+
+```javascript
      render() {
         return (
             <div>
@@ -45,23 +54,22 @@ and
             </div>
     );
   }
-`
+```
 6. your's index.js has 
-`ReactDOM.render(
+```
+ReactDOM.render(
     <App />,
   document.getElementById('root')
 );
-`
+```
 7. app.css has 
-`
+```
 .leaflet-container {
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(0deg,#fff1eb 0,#ace0f9);
 }
-`
+```
 
 8. How to use the call(GET) to download you data please open ./src/components/Services/Config.js
 and read instructions.
-
-
