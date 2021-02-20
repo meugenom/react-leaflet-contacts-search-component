@@ -228,20 +228,31 @@ input[type=submit] {
     align-items: center;
     display: flex; 
     color: inherit;
+    white-space:inherit;
     /*
     whte-space: pre-wrap;
     */
 }
 
-.search-control-info-list-item span{
+span-left{
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
     margin-right: 5px;
     float: left;
-    width: 50%;
-    text-align: -webkit-center;
+    width: 100px;
 }
+
+span-right{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+    width: 100px;
+}
+
+
 
 .search-control-info-list-item img {
     margin-left: 10px;
@@ -252,7 +263,9 @@ input[type=submit] {
 .search-control-info-list-item h3 {
     font: 200 10px/1.5 Hevletica, Verdana, serif; 
     color:rgba(255, 165, 0, 0.9);
-    line-height: 80%;
+    line-height: 90%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 

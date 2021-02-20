@@ -70,14 +70,14 @@ export default class SearchControlList extends Component {
                 li.className = 'search-control-info-list-item' 
                 li.setAttribute('key', token.getId())     
                 li.innerHTML= `
-                    <spane>
+                    <span-left>
                         <img src="./img/face.png"/>
                         <h3>${token.getFeature().properties.username}</h3>
-                        <h3>from ${token.getFeature().properties.city}</h3>                    
-                    </spane>
-                    <spane>
+                        <h3>${token.getFeature().properties.city}</h3>                    
+                    </span-left>
+                    <span-right>
                         <p>Skills: ${token.getFeature().properties.description}</p>                
-                    </spane> `
+                    </span-right> `
 
                 li.addEventListener("click", this.clickListItem(this.props, this.parser, token));
                 li.addEventListener("click", function(e){
