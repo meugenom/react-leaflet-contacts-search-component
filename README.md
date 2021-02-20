@@ -61,7 +61,7 @@ and
 }
 `
 
-8.You can use REST call to download you data. Please open ./src/components/Services/Config.js
-and read instructions
+8. How to use the call(GET) to download you data please open ./src/components/Services/Config.js
+and read instructions.
 
 
