@@ -13,26 +13,23 @@ export default function ContactMap(props) {
   /**
   * set new map and add boundared layer
   */
-
  const boundariesColor = {
     color: "orange",
     fill: false 
   };
 
 
-  //we need to know heigth and width of our browser window
-  console.log(window.innerHeight)
-  console.log(window.innerWidth)
-
-  //const center = [51.5167, 9.917];
   const center = [51.0, 10.917];
   const zoom = 6;
+  const minZoom = 4;
+  const maxZoom = 9;
+  const zoomSnap = 0.25
   const latLngGeom = boundaries.geometry; //Define real geometry here
   const osmUrl = 'https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
   const osmAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-    
-
+  var group = [];
   const mapRef = useRef(null)
+
 
   useEffect(() => {
 
@@ -44,10 +41,13 @@ export default function ContactMap(props) {
     mapRef.current = L.map('map', {
         center: center,
         zoom: zoom,
-        layers: osm
+        layers: osm,
+        minZoom: minZoom,
+        maxZoom: maxZoom,
+        zoomSnap: zoomSnap
     })
         
-  }, [center, zoom])
+  }, [center, zoom, minZoom, maxZoom, zoomSnap])
 
   /**
    *  Set markers and position 
@@ -80,6 +80,10 @@ export default function ContactMap(props) {
         marker.openPopup();
       }        
 
+      //for making right position to fit all markers to the map
+      group.push(marker);
+
+
       var utils = new Utils();
       utils.Subscribe('click', marker, func);        
       return marker;
@@ -109,6 +113,11 @@ export default function ContactMap(props) {
     
     mapRef.current.addLayer(clusters)           
 
+    //we fly to all clusters and set zoom to fit
+    var markersGroup = new L.featureGroup(group);
+    mapRef.current.fitBounds(markersGroup.getBounds())
+
+
   }, [clusters])
 
 
@@ -119,11 +128,7 @@ export default function ContactMap(props) {
  * @return new person.json object 
  */
 function updateInfo(data){
-  
 
-  if(data.length == 0){
-    data = persons;
-  }
 
   clusters.removeLayer(ActivePeoples);
 
@@ -140,25 +145,41 @@ function updateInfo(data){
       function func() {
         marker.openPopup();
       }        
+      
+      //for making right position to fit all markers to the map
+      group.push(marker);
+
       var utils = new Utils();
       utils.Subscribe('click', marker, func);        
       return marker;
+
     }
 
   });
 
   clusters.addLayer(ActivePeoples);
 
-  //return to defaults
-  mapRef.current.setZoom(zoom);
-  mapRef.current.setView(center);
 
+  /**
+     * if we have 1 person to view 
+     * we fly to this person and see the map with maxZoom
+     */
+
+  if( data.features && data.features.length == 1){
+    //console.log(data.features[0].geometry.coordinates)
+    mapRef.current.flyTo([
+      data.features[0].geometry.coordinates[1],
+      data.features[0].geometry.coordinates[0]], 
+      maxZoom)
+  } else {
+
+  //we fly to all clusters and set zoom to fit
+  var markersGroup = new L.featureGroup(group);
+  mapRef.current.fitBounds(markersGroup.getBounds())
+  }
 }
 
-/**
- * 
- */
-
+//props callback
  function closeSearch(event){
    if(event == 'closed'){    
       updateInfo(persons);

@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import Parser from '../Services/Parser'
+import Parser from '../Services/Parser/Parser'
 
 
 export default class SearchControlList extends Component {
