@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import Parser from '../Services/Parser/Parser'
+import Google from '../Services/Parser/Google'
 
 
 export default class SearchControlList extends Component {
@@ -11,12 +11,13 @@ export default class SearchControlList extends Component {
             keys: "",
             activelist: "closed"
         };
-
-        this.parser = new Parser();
+        
+        this.google = new Google();        
+        
         this.searchedList = []
 
-
     }
+
 
     componentDidUpdate(){
         if(this.state.activelist != this.props.activelist){
@@ -24,6 +25,7 @@ export default class SearchControlList extends Component {
         }
         
         this.search(this.props.keys);
+        
     }
 
     showList(){
@@ -32,7 +34,7 @@ export default class SearchControlList extends Component {
           });          
     }
 
-    clickListItem = ( props, parser, token ) => ( event ) => {        
+    clickListItem = ( props, token ) => ( event ) => {        
         var searchedList = [];
         const li = document.querySelectorAll('li[choosed]');
         const liSection = document.querySelectorAll('li[key]');
@@ -50,7 +52,9 @@ export default class SearchControlList extends Component {
     }
 
     search(word){        
-        this.searchedList = this.parser.search(word);
+        this.searchedList = this.google.find(word)
+        
+        //console.log(this.searchedList)
         
         if(this.searchedList[0]){
             
@@ -71,15 +75,15 @@ export default class SearchControlList extends Component {
                 li.setAttribute('key', token.getId())     
                 li.innerHTML= `
                     <span-left>
-                        <img src="${token.getFeature().properties.img}"/>
+                        <img src="./img/programmer.png" alt="avatar"/>
                         <h3>${token.getFeature().properties.username}</h3>
                         <h3>${token.getFeature().properties.city}</h3>                    
                     </span-left>
                     <span-right>
-                        <p>Skills: ${token.getFeature().properties.description}</p>                
+                        <p>About: ${token.getFeature().properties.about}</p>                
                     </span-right> `
 
-                li.addEventListener("click", this.clickListItem(this.props, this.parser, token));
+                li.addEventListener("click", this.clickListItem(this.props, token));
                 li.addEventListener("click", function(e){
                     if (e.target && e.target.matches("li.search-control-info-list-item")) {
                         e.target.setAttribute("choosed", "true"); // new attribute                        

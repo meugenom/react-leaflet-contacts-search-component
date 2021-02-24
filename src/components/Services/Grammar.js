@@ -15,7 +15,8 @@ const Grammar = {
                     "android" : /[a|A](ndroid|droid|NDROID|ndroid|nroid|NROID)/g,
                     "ios" : /[i|I](OS|os|0s)/g,
                     "bash" : /[b|B](ash|ASH)/g,
-                    "text@" : /[a-zA-Z0-9_\-\+\.\:\,\!]+[\w\-\+\.\:\,\!]/g                
+                    "text@en" : /[a-zäöüA-ZÄÖÜ0-9_\-\+\.\:\,\!]+[\w\-\+\.\:\,\!]/g,
+                    "text@ru" :/[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯ]+/g               
                 }
             }   
         }

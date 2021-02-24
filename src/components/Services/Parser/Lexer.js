@@ -1,6 +1,6 @@
 import grammar from '../Grammar'
 import Token from '../Models/Token'
-import Service from '../Service'
+//import Service from '../Service'
 
 /**
  * Lexer's concept is:
@@ -38,23 +38,20 @@ import Service from '../Service'
 
 const Lexer =  class Lexer {
 
-    constructor(){
-        
+    constructor(data){        
         this.stream = [];
-        this.data = new Service().getData();
-        //console.log(this.data)
-
+        this.data = data;
     }
     
     getStream(){
-
-        var patterns = grammar.tokens.patterns;
-
-        this.data.features.forEach(feature => {                    
-            
-            this.createToken(feature, 'username');
-            this.createToken(feature, 'city');
-            this.createToken(feature, 'state');
+        
+        var patterns = grammar.tokens.patterns;  
+                    
+            this.data.features.forEach(feature => {                                
+                
+                this.createToken(feature, 'name');
+                this.createToken(feature, 'city');
+                this.createToken(feature, 'state');
             
             /**
              *  @TODO if we have other options
@@ -62,8 +59,8 @@ const Lexer =  class Lexer {
                 this.createToken(feature, 'age');        
              */
             
-                 
-            this.checkTokens(feature.properties.description, feature);
+                 //was description 
+                this.checkTokens(feature.properties.about, feature);
             
             /**
              * @TODO if we have other options and need to see by regex expression
@@ -71,7 +68,7 @@ const Lexer =  class Lexer {
              */
             
         })  
-
+        //console.log(this.stream)
         return this.stream
     }
 
@@ -82,49 +79,53 @@ const Lexer =  class Lexer {
         var column = 0;
 
         for(var key in patterns){      
-
-            const array = this.findMatches(str, patterns[key]);           
-            if(array!=null){
-                array.forEach(value => {
+            if(str!=null && str!=undefined){
+                const array = this.findMatches(str, patterns[key]);           
+                if(array!=null){
+                    array.forEach(value => {
                     
-                    var token = new Token();
-                    token.setType(key);
-                    token.setValue(value);
-                    token.setPositionStartLine(line);
-                    token.setPositionStartColumn(column);
-                    column = String(value).length;
-                    token.setPositionEndLine(line);
-                    token.setPositionEndColumn(column);
-                    token.setId(feature.id);
-                    token.setFeature(feature);
-                    this.stream.push(token);           
-
-                })
-            }
-            
+                        var token = new Token();
+                        token.setType(key);
+                        token.setValue(value);
+                        token.setPositionStartLine(line);
+                        token.setPositionStartColumn(column);
+                        column = String(value).length;
+                        token.setPositionEndLine(line);
+                        token.setPositionEndColumn(column);
+                        token.setId(feature.id);
+                        token.setFeature(feature);
+                        this.stream.push(token);           
+                    }   )
+                }            
+            }            
         }
 
     }
 
     createToken(feature, type){
-        
-        var line = 0;
-        var column = String(feature.properties[type]).length;
-        var token = new Token();
+        if(feature.properties[type]!=null && feature.properties[type]!=undefined){
+            var line = 0;
+            var column = String(feature.properties[type]).length;
+            var token = new Token();
 
-        token.setType(type);
-        token.setValue(feature.properties[type]);
-        token.setPositionStartLine(line);
-        token.setPositionStartColumn(0);            
-        token.setPositionEndLine(line);
-        token.setPositionEndColumn(column);
-        token.setId(feature.id);
-        token.setFeature(feature);                     
+            token.setType(type);
+            token.setValue(feature.properties[type]);
+            token.setPositionStartLine(line);
+            token.setPositionStartColumn(0);            
+            token.setPositionEndLine(line);
+            token.setPositionEndColumn(column);
+            token.setId(feature.id);
+            token.setFeature(feature);                     
         
-        this.stream.push(token);           
+            this.stream.push(token);           
+        }
     }
      
     findMatches(str, pattern){ 
+
+        //console.log('str= '+str)
+        //console.log('pattern: '+pattern)
+
         return str.match(pattern)
     }
 

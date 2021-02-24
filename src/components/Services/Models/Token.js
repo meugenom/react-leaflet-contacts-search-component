@@ -14,7 +14,7 @@ const Token = class Token {
                     line: "",
                     column: ""
                 }
-            },            
+            },
             feature: {}
         }
     }
@@ -75,11 +75,11 @@ const Token = class Token {
         return this.token.position.end.column;
     }
 
-    setFeature(feature){
+    setFeature(feature) {
         this.token.feature = feature;
     }
 
-    getFeature(){
+    getFeature() {
         return this.token.feature;
     }
 

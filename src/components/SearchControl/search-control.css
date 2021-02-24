@@ -3,6 +3,7 @@
     left: 10px;
     top: 80px;
 }
+
 .search-control-wrap {
     --icon-width: 30px;
     --icon-height: 30px;
@@ -27,7 +28,7 @@
     grid-template-columns: 1fr;
     /* border: var(--border-size) solid var(--border-color); */
     border-radius: 4px;
-    border: 2px solid rgba(0,0,0,0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .search-control-wrap ::placeholder {
@@ -115,9 +116,9 @@
     padding: 0px 26px 0px 0px;
     height: var(--active-height);
     width: 200px;
-    
+
     border: 1px solid transparent;
-    
+
 }
 
 input[type=submit] {
@@ -138,19 +139,22 @@ input[type=submit] {
     z-index: 51;
     position: absolute;
 }
+
 .search-control-icon-button svg,
-.search-control-active .search-control-close-button > svg {
+.search-control-active .search-control-close-button>svg {
     height: 75%;
     width: 75%;
     transform-origin: center;
     stroke-width: var(--svg-stroke-width);
     stroke: var(--primary-color);
 }
+
 .search-control-icon-button svg {
     max-height: var(--icon-button-max-size);
     max-width: var(--icon-button-max-size);
 }
-.search-control-active .search-control-close-button > svg {
+
+.search-control-active .search-control-close-button>svg {
     max-height: var(--close-button-max-size);
     max-width: var(--close-button-max-size);
 }
@@ -202,7 +206,7 @@ input[type=submit] {
     display: flex;
     flex-direction: column;
     background: transparent;
-    max-height  : 400px;
+    max-height: 400px;
     /* height: 100%; */
     outline: none;
 }
@@ -212,11 +216,13 @@ input[type=submit] {
 .search-control-info-list-item:focus {
     background: var(--background-color-active) !important;
 }
+
 .search-control-info-list:focus .search-control-info-list-item:not(.active).candidate,
 .search-control-info-list-item:not(.active):active,
 .search-control-info-list-item:not(.active):focus {
     background: var(--background-color-candidate) !important;
 }
+
 .search-control-info-list-item {
     border-bottom: 1px solid var(--border-color);
     /* font: normal 12px/16px Tahoma, Verdana, sans-serif;*/
@@ -226,15 +232,15 @@ input[type=submit] {
     padding: 5px;
     text-align: center;
     align-items: center;
-    display: flex; 
+    display: flex;
     color: inherit;
-    white-space:inherit;
+    white-space: inherit;
     /*
     whte-space: pre-wrap;
     */
 }
 
-span-left{
+span-left {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
@@ -243,7 +249,7 @@ span-left{
     width: 100px;
 }
 
-span-right{
+span-right {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
@@ -262,18 +268,18 @@ span-right{
 }
 
 .search-control-info-list-item h3 {
-    font: 200 10px/1.5 Hevletica, Verdana, serif; 
-    color:rgba(236, 155, 15, 0.918);
+    font: 200 10px/1.5 Hevletica, Verdana, serif;
+    color: rgba(236, 155, 15, 0.918);
     line-height: 90%;
-    white-space:nowrap;
-    text-overflow:ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
 .search-control-info-list-item p {
-    font: 200 10px/1.5 Hevletica, Verdana, serif; 
+    font: 200 10px/1.5 Hevletica, Verdana, serif;
     /* color:rgba(0, 128, 255, 0.9); */
-    text-align: -webkit-auto;  
+    text-align: -webkit-auto;
 }
 
 

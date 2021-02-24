@@ -1,7 +1,6 @@
 'use strict'
-//import { useHistory } from 'react-router-dom';
+
 import CONFIG from './Config'
-import persons from '../../data/persons.json'
 
 /**
  *
@@ -20,37 +19,26 @@ export default class Service {
     this.data = {}; 
   }
 
-  getData(){
-    if(this.host == null){
-      this.data = {data: persons};
-    }else{
-      this.data = this.getCall();
-    }
-
-    return this.data.data
+  async getData(){
+     return this.getCall();
   }
 
   async getCall() {
-      const response = await fetch(
-        this.host, {
-        method: 'GET',
-        headers: { 
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
+        const options = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
         }
-      })
-        .catch((error) => {
-          console.log(error)          
-          /**
-           * need to correct for your environment 
-           */
-          //const history = useHistory()
-          //history.push('/error404') 
-        })
-      
-      this.data = (this.dataType === 'json' ? await response.json() : await response.text())
-    
-    return this.data.data
-  }
+        try {
+          const response = await fetch(this.host, options)
+          const json = await response.json()
+          return json
 
+        } catch (err) {            
+            console.log('Error getting documents', err)
+
+        }
+  }   
+      
 }

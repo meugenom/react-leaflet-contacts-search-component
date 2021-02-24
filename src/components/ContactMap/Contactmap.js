@@ -5,21 +5,20 @@ import SearchControl from '../SearchControl/SearchControl';
 import 'leaflet-boundary-canvas';
 import Utils from '../Utils/Utilits';
 import boundaries from "../../data/boundaries.json";
-import persons from "../../data/persons.json";
 import './ContactMap.css'
+
+import Service from '../Services/Service'
+import Lexer from '../Services/Parser/Lexer'
+import Parser from '../Services/Parser/Parser'
+import personStore from '../Services/PersonStore'
+import streamStore from '../Services/StreamStore'
+import examplePersons from '../../data/persons.json'
+
 
 
 export default function ContactMap(props) {
 
-  /**
-  * set new map and add boundared layer
-  */
- const boundariesColor = {
-    color: "orange",
-    fill: false 
-  };
-
-
+  const boundariesColor = { color: "orange", fill: false};
   const center = [51.0, 10.917];
   const zoom = 6;
   const minZoom = 4;
@@ -30,6 +29,34 @@ export default function ContactMap(props) {
   const osmAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   var group = [];
   const mapRef = useRef(null)
+
+
+  /**
+   * loading data from dev server
+   * with error we show clear map in the browser
+   */
+
+  async function onLoading(){
+
+    var action = await new Service().getData().then((persons)=>{      
+      if(persons != undefined){
+        personStore.set(persons)      
+        var stream = new Lexer(persons).getStream();     
+        streamStore.set(stream);
+        new Parser(stream).prepare();
+        updateInfo(persons);    
+      }else{
+
+        console.error('Error connection with dev server, we use example data')        
+        //uses example data for our map
+        personStore.set(examplePersons)      
+        var stream = new Lexer(examplePersons).getStream();     
+        streamStore.set(stream);
+        new Parser(stream).prepare(); 
+        
+      }     
+    });      
+  }
 
 
   useEffect(() => {
@@ -56,50 +83,16 @@ export default function ContactMap(props) {
   
   //set new icon image for markers
   const activeIcon = L.icon({
-    iconUrl: './img/marker-icon.png',
+    iconUrl: './img/marker-icon-blue.png',
     iconSize: [25, 41],
     iconAnchor: [12,41]
   });
 
-
-  var ActivePeoples = L.geoJson(persons, {
-    pointToLayer: function (feature, latlng) {
-      
-      var marker = L.marker(latlng, {
-        icon: activeIcon
-      });
-
-      marker.bindPopup(
-        '<div class="popups-widget-top">'+
-          '<img src="'+feature.properties.img+'" alt="avatar"/>'+
-            '<div class="popups-top-right-section">'+
-            '<p> '+feature.properties.username + '</p>'+
-            '<p> from '+feature.properties.city+'</p>' +       
-            '</div>'+
-         '</div>'+
-         '<div class="popups-widget-bottom">'+
-            ' Skills: ' + feature.properties.description +
-         '</div>'
-
-      );
-
-      //marker.openPopup() doesnt work in Safari
-      //this is some hook             
-      function func() {
-        marker.openPopup();
-      }        
-
-      //for making right position to fit all markers to the map
-      group.push(marker);
-
-
-      var utils = new Utils();
-      utils.Subscribe('click', marker, func);        
-      return marker;
-    }
-
+  const inactiveIcon = L.icon({
+    iconUrl: './img/marker-icon-gray.png',
+    iconSize: [25, 41],
+    iconAnchor: [12,41]
   });
-
 
   const boundariesLayer = L.geoJSON(boundaries, {
     style: function (feature) {
@@ -107,27 +100,40 @@ export default function ContactMap(props) {
     }
   });
 
-
   var clusters = L.markerClusterGroup({
-      spiderfyOnMaxZoom: true,
-	    showCoverageOnHover: true,
-	    zoomToBoundsOnClick: true,
-      chunkedLoading: true
-    });    
-    
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: true,
+    zoomToBoundsOnClick: true,
+    chunkedLoading: true
+  });    
+
+
+
+  /** null markers block begin
+   * it's very important for first initialzation of the map
+  */
+  var ActivePeoples = L.geoJson(examplePersons, {
+    pointToLayer: function (feature, latlng) {
+      
+      var marker = L.marker(latlng, { 
+        icon: (feature.properties.username?activeIcon:inactiveIcon)
+      });
+
+      //for making right position to fit all markers to the map
+      group.push(marker);    
+    }
+
+  });
+  
     clusters.addLayer(boundariesLayer);
     clusters.addLayer(ActivePeoples);
 
-  useEffect(() => {
-    
+  useEffect(() => {    
     mapRef.current.addLayer(clusters)           
 
-    //we fly to all clusters and set zoom to fit
-    var markersGroup = new L.featureGroup(group);
-    mapRef.current.fitBounds(markersGroup.getBounds())
-
-
   }, [clusters])
+  /** null markers block end*/
+  
 
 
 
@@ -136,26 +142,42 @@ export default function ContactMap(props) {
  * @param list  returns the list of tokens to updating of our markers
  * @return new person.json object 
  */
+
 function updateInfo(data){
-
-
-  clusters.removeLayer(ActivePeoples);
-
+  
+  clusters.removeLayer(ActivePeoples);        
+    
   ActivePeoples = L.geoJson(data, {
-    pointToLayer: function (feature, latlng) {      
-      var marker = L.marker(latlng, { icon: activeIcon});
+    pointToLayer: function (feature, latlng) { 
+
+      
+      var marker = L.marker(latlng, { 
+          icon: (feature.properties.username?activeIcon:inactiveIcon)
+        });
+
       marker.bindPopup(
         '<div class="popups-widget-top">'+
-          '<img src="'+feature.properties.img+'" alt="avatar"/>'+
-            '<div class="popups-top-right-section">'+
-            '<p> '+feature.properties.username + '</p>'+
-            '<p> from '+feature.properties.city+'</p>' +       
+          '<img src="./img/programmer.png" alt="avatar"/>'+
+            '<div class="popups-top-right-section">'+            
+            '<p>' + (feature.properties.username?'<a href="https://t.me/'+feature.properties.username+'">@'+feature.properties.username+'  </a>':'<i>hidden </i>')
+                +'('+feature.properties.name + ')'+
+            '</p>'+
+            '<p class="city-name"> from <b>'+feature.properties.city+'</b></p>' +       
             '</div>'+
          '</div>'+
          '<div class="popups-widget-bottom">'+
-            ' Skills: ' + feature.properties.description +
-         '</div>'
+            '<b>About:</b> ' + feature.properties.about +
+         '</div>'+
+         (feature.properties.username
+            ?''
+              :'<div class="popups-widget-bottom-error">'+
+                  '<i class="error-info">He/She needs to indicate a username</i></br>'+
+                  '<i class="error-info">for communication</i>'+
+                  '</div>'
+         )
       );
+
+
       //marker.openPopup() doesnt work in Safari
       //this is some hook             
       function func() {
@@ -181,26 +203,31 @@ function updateInfo(data){
      * we fly to this person and see the map with maxZoom
      */
 
+     
   if( data.features && data.features.length == 1){
+    //console.log(data.features)
     //console.log(data.features[0].geometry.coordinates)
+    
     mapRef.current.flyTo([
       data.features[0].geometry.coordinates[1],
       data.features[0].geometry.coordinates[0]], 
       maxZoom)
   } else {
 
-  //we fly to all clusters and set zoom to fit
-  var markersGroup = new L.featureGroup(group);
-  mapRef.current.fitBounds(markersGroup.getBounds())
+    //we fly to all clusters and set zoom to fit
+    var markersGroup = new L.featureGroup(group);
+    mapRef.current.fitBounds(markersGroup.getBounds())
   }
 }
 
 //props callback
  function closeSearch(event){
    if(event == 'closed'){    
-      updateInfo(persons);
+      updateInfo(examplePersons);
    }
  }
+
+ onLoading();
 
 return <div>
           <SearchControl updateInfo={updateInfo} closeSearch={closeSearch}/>
