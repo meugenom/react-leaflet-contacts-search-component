@@ -56,7 +56,7 @@ export default class SearchControlList extends Component {
         
         //console.log(this.searchedList)
         
-        if(this.searchedList[0]){
+        //if(this.searchedList[0]){
             
             //send list to props of the parent component 
             this.props.updateList(this.searchedList);
@@ -67,7 +67,7 @@ export default class SearchControlList extends Component {
                 sectionList[0].removeChild(sectionList[0].firstChild);
               }
             
-              //console.log(searchedList)
+              //console.log(this.searchedList)
 
               this.searchedList.forEach(token =>{
                 var li = document.createElement('li');
@@ -93,7 +93,7 @@ export default class SearchControlList extends Component {
                 sectionList[0].appendChild(li);
             })
             
-        }
+        //}
     }
 
 

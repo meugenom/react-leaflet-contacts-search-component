@@ -83,13 +83,17 @@ export default class SearchControl extends Component {
             
             
             if(this.state.inputValue.length == 0){                
+                
                 //remove all markers
                 props.updateInfo([]);
+                
                 //remove all DOM elements form list
                 const sectionList = document.getElementsByClassName('search-control-info-list');                            
                 while (sectionList[0].firstChild) {
                     sectionList[0].removeChild(sectionList[0].firstChild);
                 }
+
+
 
             }            
             
@@ -107,8 +111,9 @@ export default class SearchControl extends Component {
             newPersons.features.push(token.getFeature())
         })
         
+                     
         this.props.updateInfo(newPersons);
-
+        
 
     }
 

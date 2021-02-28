@@ -13,7 +13,7 @@ const Config = {
      */
     
     
-    host: '/api/data',
+    host: '/api/getData',
     dataType: 'json'
 }
 

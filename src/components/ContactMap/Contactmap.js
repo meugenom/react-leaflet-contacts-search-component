@@ -48,16 +48,18 @@ export default function ContactMap(props) {
       }else{
 
         console.error('Error connection with dev server, we use example data from /data/persons.json')        
+        loadDefault();
+      }     
+    });      
+  }
+
+  function loadDefault(){
         personStore.set(examplePersons)      
         var stream = new Lexer(examplePersons).getStream();     
         streamStore.set(stream);
         new Parser(stream).prepare();
         updateInfo(examplePersons);    
-
-      }     
-    });      
   }
-
 
   useEffect(() => {
 
@@ -144,6 +146,9 @@ export default function ContactMap(props) {
  */
 
 function updateInfo(data){
+
+  console.log('updateInfo')
+  console.log(data)
   
   clusters.removeLayer(ActivePeoples);        
     
@@ -224,10 +229,13 @@ function updateInfo(data){
 //props callback
  function closeSearch(event){
    if(event == 'closed'){    
-      updateInfo(examplePersons);
+      console.log('search bar was closed')
+      onLoading();    
    }
  }
 
+
+ //start script
  onLoading();
 
 return <div>

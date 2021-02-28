@@ -126,11 +126,11 @@ export default class Google {
                 count++;
             }
         }
-        //console.log(splitedWords)
+        console.log(splitedWords)
         //console.log(result)
         //console.log('count: '+count)
-        //console.log(obj)
-        //console.log(obj1[count-1])
+        //console.log(inputObject)
+        //console.log(resultObject[count-1])
         return resultObject[count - 1]
     }
 
