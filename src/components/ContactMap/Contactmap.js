@@ -12,7 +12,7 @@ import Lexer from '../Services/Parser/Lexer'
 import Parser from '../Services/Parser/Parser'
 import personStore from '../Services/PersonStore'
 import streamStore from '../Services/StreamStore'
-import examplePersons from '../../data/persons.json'
+import examplePersons from '../../data/demo.json'
 
 
 
@@ -39,7 +39,7 @@ export default function ContactMap(props) {
   async function onLoading(){
 
     var action = await new Service().getData().then((persons)=>{      
-      if(persons != undefined){
+      if(persons != undefined && persons.features){
         personStore.set(persons)      
         var stream = new Lexer(persons).getStream();     
         streamStore.set(stream);
@@ -47,13 +47,13 @@ export default function ContactMap(props) {
         updateInfo(persons);    
       }else{
 
-        console.error('Error connection with dev server, we use example data')        
-        //uses example data for our map
+        console.error('Error connection with dev server, we use example data from /data/persons.json')        
         personStore.set(examplePersons)      
         var stream = new Lexer(examplePersons).getStream();     
         streamStore.set(stream);
-        new Parser(stream).prepare(); 
-        
+        new Parser(stream).prepare();
+        updateInfo(examplePersons);    
+
       }     
     });      
   }
@@ -212,9 +212,10 @@ function updateInfo(data){
       data.features[0].geometry.coordinates[1],
       data.features[0].geometry.coordinates[0]], 
       maxZoom)
-  } else {
+  }
+  if(data.features && data.features.length > 1 && group!=null && mapRef.current!=null){
 
-    //we fly to all clusters and set zoom to fit
+    //we fly to all clusters and set zoom to fit    
     var markersGroup = new L.featureGroup(group);
     mapRef.current.fitBounds(markersGroup.getBounds())
   }

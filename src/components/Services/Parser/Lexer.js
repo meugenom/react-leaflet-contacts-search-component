@@ -44,12 +44,12 @@ const Lexer =  class Lexer {
     }
     
     getStream(){
-        
-        var patterns = grammar.tokens.patterns;  
-                    
+
+            if(this.data !=null && this.data.features){
             this.data.features.forEach(feature => {                                
                 
                 this.createToken(feature, 'name');
+                this.createToken(feature, 'username');
                 this.createToken(feature, 'city');
                 this.createToken(feature, 'state');
             
@@ -70,6 +70,8 @@ const Lexer =  class Lexer {
         })  
         //console.log(this.stream)
         return this.stream
+        }
+        return [];
     }
 
     checkTokens(str, feature){
@@ -78,8 +80,11 @@ const Lexer =  class Lexer {
         var line = 0;
         var column = 0;
 
+
         for(var key in patterns){      
             if(str!=null && str!=undefined){
+                str = str.replace(/([&<>\"'@#!*\(\)])/g,"");
+
                 const array = this.findMatches(str, patterns[key]);           
                 if(array!=null){
                     array.forEach(value => {
@@ -106,10 +111,12 @@ const Lexer =  class Lexer {
         if(feature.properties[type]!=null && feature.properties[type]!=undefined){
             var line = 0;
             var column = String(feature.properties[type]).length;
-            var token = new Token();
+            var token = new Token();            
+            var value = feature.properties[type];            
+            value = value.replace(/([&<>\"'@#!*\(\)])/g,"");
 
             token.setType(type);
-            token.setValue(feature.properties[type]);
+            token.setValue(value);
             token.setPositionStartLine(line);
             token.setPositionStartColumn(0);            
             token.setPositionEndLine(line);
@@ -122,10 +129,6 @@ const Lexer =  class Lexer {
     }
      
     findMatches(str, pattern){ 
-
-        //console.log('str= '+str)
-        //console.log('pattern: '+pattern)
-
         return str.match(pattern)
     }
 

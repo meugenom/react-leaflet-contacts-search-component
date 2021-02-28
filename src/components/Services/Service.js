@@ -27,7 +27,10 @@ export default class Service {
         const options = {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Request-Method':'GET'//,
+            //'Access-Control-Request-Headers':'Content-Type, Accept',
+            //'Origin' : 'https://eugenem.dev'
           }
         }
         try {
