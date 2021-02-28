@@ -24,7 +24,7 @@
             "type":"Point"},
         "properties":{
             "city":"Offenbach",
-            "about":"Javascript Java Python",
+            "about":"Javascript Java Python and good skills",
             "state":"Hessen",
             "name":"Eugen M.",
             "username":"eugenemdev",
@@ -39,7 +39,7 @@
             "type":"Point"},
         "properties":{
             "city":"Berlin",
-            "about":"Java Python bash",
+            "about":"Java Python bash vava",
             "state":"Berlin",
             "name": "Maxim",
             "username": null,
@@ -84,7 +84,7 @@
             "type":"Point"},
         "properties":{
             "city":"Berlin",
-            "about":"java spring-boot",
+            "about":"java spring-boot idk",
             "state":"Berlin",
             "name":"Igor Bondarev",
             "username": null,
@@ -114,7 +114,7 @@
             "type":"Point"},
         "properties":{
             "city":"Frankfurt am Main",
-            "about":"Java AI",
+            "about":"Java AI vava",
             "state":"Hessen",
             "name":"Maxim Brulow",
             "username":"maxbrulow",
