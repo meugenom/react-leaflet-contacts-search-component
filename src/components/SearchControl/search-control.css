@@ -247,6 +247,7 @@ input[type=submit] {
     margin-right: 5px;
     float: left;
     width: 100px;
+	pointer-events: none;
 }
 
 .right {
