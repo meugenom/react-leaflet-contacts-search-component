@@ -16,7 +16,7 @@
     --border-size: 0px;
     --main-background-color: #ffffff;
     --background-color-candidate: #5a6673;
-    --background-color-hover: #5a6673b3;
+    --background-color-hover: #9ebfe2b3;
     --background-color-active: #50c3bd;
     --svg-stroke-width: 5px;
     /*box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);*/
@@ -240,7 +240,7 @@ input[type=submit] {
     */
 }
 
-left {
+.left {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
@@ -249,13 +249,18 @@ left {
     width: 100px;
 }
 
-right {
+.right {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
     margin-right: 5px;
     float: left;
     width: 100px;
+}
+
+.right:hover {
+	opacity: .8;
+	pointer-events: none; 
 }
 
 

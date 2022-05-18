@@ -76,23 +76,23 @@ export default class SearchControlList extends Component {
                 li.className = 'search-control-info-list-item'
                 li.setAttribute('key', token.getId())     
                 li.innerHTML= `
-                    <div className = "left">
+                    <div class = "left">
                         <img src="./img/programmer.png" alt="avatar"/>
                         <h3>${token.getFeature().properties.username}</h3>
                         <h3>${token.getFeature().properties.city}</h3>                    
                     </div>
-                    <div className = "right">
+                    <div class = "right">
                         <p>About: ${token.getFeature().properties.about}</p>                
                     </div> `
 				
 				li.addEventListener("click", function(e){
-					console.log(e);
+					//console.log(e);
                     if (e.target && e.target.matches("li.search-control-info-list-item")) {
                         e.target.setAttribute("choosed", "true"); // new attribute                     
                       }
                 }, true);
 
-				li.addEventListener("click", this.clickListItem(this.props, token), true);
+				li.addEventListener("click", this.clickListItem(this.props, token), false);
 				
 
                 sectionList[0].appendChild(li);
