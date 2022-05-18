@@ -34,7 +34,9 @@ export default class SearchControlList extends Component {
           });          
     }
 
-    clickListItem = ( props, token ) => ( event ) => {        
+    clickListItem = ( props, token ) => ( event ) => {    
+		
+		console.log("choosed");
         var searchedList = [];
         const li = document.querySelectorAll('li[choosed]');
         const liSection = document.querySelectorAll('li[key]');
@@ -71,24 +73,27 @@ export default class SearchControlList extends Component {
 
               this.searchedList.forEach(token =>{
                 var li = document.createElement('li');
-                li.className = 'search-control-info-list-item' 
+                li.className = 'search-control-info-list-item'
                 li.setAttribute('key', token.getId())     
                 li.innerHTML= `
-                    <span-left>
+                    <div className = "left">
                         <img src="./img/programmer.png" alt="avatar"/>
                         <h3>${token.getFeature().properties.username}</h3>
                         <h3>${token.getFeature().properties.city}</h3>                    
-                    </span-left>
-                    <span-right>
+                    </div>
+                    <div className = "right">
                         <p>About: ${token.getFeature().properties.about}</p>                
-                    </span-right> `
-
-                li.addEventListener("click", this.clickListItem(this.props, token));
-                li.addEventListener("click", function(e){
+                    </div> `
+				
+				li.addEventListener("click", function(e){
+					console.log(e);
                     if (e.target && e.target.matches("li.search-control-info-list-item")) {
-                        e.target.setAttribute("choosed", "true"); // new attribute                        
+                        e.target.setAttribute("choosed", "true"); // new attribute                     
                       }
-                });
+                }, true);
+
+				li.addEventListener("click", this.clickListItem(this.props, token), true);
+				
 
                 sectionList[0].appendChild(li);
             })

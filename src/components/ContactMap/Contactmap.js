@@ -147,8 +147,8 @@ export default function ContactMap(props) {
 
 function updateInfo(data){
 
-  console.log('updateInfo')
-  console.log(data)
+  //console.log('updateInfo')
+  //console.log(data)
   
   clusters.removeLayer(ActivePeoples);        
     

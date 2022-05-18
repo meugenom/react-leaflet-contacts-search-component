@@ -22,7 +22,7 @@ export default class Google {
             word = word.slice(0, 20);
 
             //replace html entities from  the string            
-            word = word.replace(/([&<>\"'@#*\(\)])/g, "");
+            word = word.replace(/([&<>\"'@#*+\(\)])/g, "");
 
             //delete backspaces in the start and end of the word
             word = word.trim();

@@ -191,7 +191,7 @@ input[type=submit] {
     color: inherit;
 }
 
-.search-control-info-span {
+.search-control-info-div {
     margin: 0 auto;
     font-weight: normal;
     font-size: 12px;
@@ -240,7 +240,7 @@ input[type=submit] {
     */
 }
 
-span-left {
+left {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
@@ -249,7 +249,7 @@ span-left {
     width: 100px;
 }
 
-span-right {
+right {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 5px;
